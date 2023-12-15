@@ -6,8 +6,7 @@ public class Dictionary {
         word = word.substring(0, 1).toUpperCase() + word.substring(1);
         System.out.println(word);
         int codigoASCII = (word.charAt(0));
-        return codigoASCII;
+        return codigoASCII-65;
     }
-
-
+    
 }
