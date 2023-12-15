@@ -34,4 +34,5 @@ public class TreeNode<T> {
     TreeNode<T> getRight(){
         return right;
     }
+    
 }
