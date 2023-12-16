@@ -10,10 +10,12 @@ private Comparator<T> comparator;
 public ArrayList<T> list;
 TreeNode<T> root;
 
-    public BinaryTree(Comparator<T> comparator) {
+    public BinaryTree() {
         this.comparator = comparator;
         root = null;
     }
+
+
 
     public boolean isEmpty(){
         return root == null;

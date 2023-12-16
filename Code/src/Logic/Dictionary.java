@@ -2,6 +2,8 @@ package Logic;
 
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import Logic.BinaryTree;
 
 public class Dictionary {
     private static BinaryTree<String>[] alphabetTrees;
@@ -11,7 +13,7 @@ public class Dictionary {
         // Inicialización de árboles
         alphabetTrees = new BinaryTree[26];
         for (int i = 0; i < 26; i++) {
-            alphabetTrees[i] = new BinaryTree<>(Comparator.naturalOrder());
+            alphabetTrees[i] = new BinaryTree<>();
         }
     }
 
