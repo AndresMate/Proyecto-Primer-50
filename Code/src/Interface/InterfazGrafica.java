@@ -16,7 +16,7 @@ public class InterfazGrafica {
     JLabel textoBienvenida;
     JButton botonAgregar, botonConsultar,botonObtenerListado,botonListar ,botonModificar;
     /**
-     * Constructor de la clase BienvenidaPapeleria.
+     * Constructor de la clase InterfazGrafica.
      * Configura la ventana de bienvenida y los componentes, como el texto de bienvenida y los botones.
      */
     public InterfazGrafica() {
