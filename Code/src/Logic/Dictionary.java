@@ -19,7 +19,7 @@ public class Dictionary {
 
 
     public static void addWordToDictionary(String word) {
-        if (!word.isEmpty() && Character.isLetter(word.charAt(0))) {
+        if (!word.isEmpty() && Character.isLetter(word.charAt(0)) && convertWordToASCII(word)>=0 && convertWordToASCII(word)<=25 ) {
             int index = Dictionary.convertWordToASCII(word);
             alphabetTrees[index].addNode(word);
             System.out.println("Palabra agregada exitosamente al diccionario.");
