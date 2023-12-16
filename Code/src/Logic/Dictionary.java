@@ -13,22 +13,22 @@ public class Dictionary {
         // Inicialización de árboles
         alphabetTrees = new BinaryTree[26];
         for (int i = 0; i < 26; i++) {
-            alphabetTrees[i] = new BinaryTree<>();
+            alphabetTrees[i] = new BinaryTree<>((CharSequence::compare));
         }
     }
 
 
-    public static void addWordToDictionary(String word) {
+    public  String addWordToDictionary(String word) {
         if (!word.isEmpty() && Character.isLetter(word.charAt(0)) && convertWordToASCII(word)>=0 && convertWordToASCII(word)<=25 ) {
             int index = convertWordToASCII(word);
             alphabetTrees[index].addNode(word);
-            System.out.println("Palabra agregada exitosamente al diccionario.");
+            return ("Palabra agregada exitosamente al diccionario.");
         } else {
-            System.out.println("La palabra ingresada no es válida. Inténtelo de nuevo.");
+            return ("La palabra ingresada no es válida. Inténtelo de nuevo.");
         }
     }
 
-    public static void displayDictionary() {
+    public  void displayDictionary() {
         for (int i = 0; i < 26; i++) {
             char letter = (char) ('A' + i);
             System.out.println("\nPalabras que comienzan con la letra " + letter + ":");
@@ -39,7 +39,7 @@ public class Dictionary {
         }
     }
 
-    public static int convertWordToASCII(String word) {
+    public  int convertWordToASCII(String word) {
         word = word.substring(0, 1).toUpperCase() + word.substring(1);
         System.out.println(word);
         int codigoASCII = (word.charAt(0));

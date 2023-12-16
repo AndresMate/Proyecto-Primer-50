@@ -10,7 +10,7 @@ private Comparator<T> comparator;
 public ArrayList<T> list;
 TreeNode<T> root;
 
-    public BinaryTree() {
+    public BinaryTree(Comparator<T> comparator) {
         this.comparator = comparator;
         root = null;
     }

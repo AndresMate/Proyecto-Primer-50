@@ -4,8 +4,9 @@ import Logic.Dictionary;
 public class Main {
     public static void main(String[] args) {
         Dictionary dictionary = new Dictionary();
-        Dictionary.addWordToDictionary("hola");
-        Dictionary.addWordToDictionary("holo");
-        Dictionary.displayDictionary();
+        System.out.println(dictionary.addWordToDictionary("hola"));
+        System.out.println(dictionary.addWordToDictionary("holo"));
+        dictionary.displayDictionary();
     }
+
 }
