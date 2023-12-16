@@ -9,7 +9,7 @@ public class Dictionary {
     private static BinaryTree<String>[] alphabetTrees;
 
 
-    static {
+    public Dictionary() {
         // Inicialización de árboles
         alphabetTrees = new BinaryTree[26];
         for (int i = 0; i < 26; i++) {
@@ -20,7 +20,7 @@ public class Dictionary {
 
     public static void addWordToDictionary(String word) {
         if (!word.isEmpty() && Character.isLetter(word.charAt(0)) && convertWordToASCII(word)>=0 && convertWordToASCII(word)<=25 ) {
-            int index = Dictionary.convertWordToASCII(word);
+            int index = convertWordToASCII(word);
             alphabetTrees[index].addNode(word);
             System.out.println("Palabra agregada exitosamente al diccionario.");
         } else {
