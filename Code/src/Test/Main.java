@@ -6,6 +6,7 @@ public class Main {
         Dictionary dictionary = new Dictionary();
         System.out.println(dictionary.addWordToDictionary("hola"));
         System.out.println(dictionary.addWordToDictionary("holo"));
+        System.out.println(dictionary.addWordToDictionary("hala"));
         dictionary.displayDictionary();
     }
 
