@@ -1,10 +1,42 @@
 package Logic;
 
 
+import java.util.ArrayList;
 
 public class Dictionary {
+    private static BinaryTree<String>[] alphabetTrees;
 
-    
+
+    static {
+        // Inicialización de árboles
+        alphabetTrees = new BinaryTree[26];
+        for (int i = 0; i < 26; i++) {
+            alphabetTrees[i] = new BinaryTree<>(Comparator.naturalOrder());
+        }
+    }
+
+
+    public static void addWordToDictionary(String word) {
+        if (!word.isEmpty() && Character.isLetter(word.charAt(0))) {
+            int index = Dictionary.convertWordToASCII(word);
+            alphabetTrees[index].addNode(word);
+            System.out.println("Palabra agregada exitosamente al diccionario.");
+        } else {
+            System.out.println("La palabra ingresada no es válida. Inténtelo de nuevo.");
+        }
+    }
+
+    public static void displayDictionary() {
+        for (int i = 0; i < 26; i++) {
+            char letter = (char) ('A' + i);
+            System.out.println("\nPalabras que comienzan con la letra " + letter + ":");
+            ArrayList<String> words = alphabetTrees[i].listInsort();
+            for (String word : words) {
+                System.out.println(word);
+            }
+        }
+    }
+
     public static int convertWordToASCII(String word) {
         word = word.substring(0, 1).toUpperCase() + word.substring(1);
         System.out.println(word);
