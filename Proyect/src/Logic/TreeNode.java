@@ -34,5 +34,10 @@ public class TreeNode<T> {
     TreeNode<T> getRight(){
         return right;
     }
+
+    @Override
+    public String toString() {
+        return info.toString();
+    }
     
 }
