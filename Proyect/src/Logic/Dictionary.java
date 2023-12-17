@@ -1,5 +1,7 @@
 package Logic;
 
+import Model.Word;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 

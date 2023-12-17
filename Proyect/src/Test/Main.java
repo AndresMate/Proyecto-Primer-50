@@ -1,7 +1,7 @@
 package Test;
 
 /*import Logic.Dictionary;
-import Logic.Word;
+import Model.Word;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,7 +22,7 @@ public class Main {
     }
 }*/
 import Logic.Dictionary;
-import Logic.Word;
+import Model.Word;
 
 import java.util.ArrayList;
 import java.util.Scanner;
