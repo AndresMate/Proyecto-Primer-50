@@ -1,6 +1,6 @@
 package Test;
 
-import Logic.Dictionary;
+/*import Logic.Dictionary;
 import Logic.Word;
 
 public class Main {
@@ -8,42 +8,113 @@ public class Main {
         Dictionary dictionary = new Dictionary();
 
         System.out.println(dictionary.addWordToDictionary(new Word("Gato", "Un animal doméstico", "Cat")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Perro", "Un amigo leal", "Dog")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Manzana", "Una fruta deliciosa", "Apple")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Elefante", "Un animal grande y majestuoso", "Elephant")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Casa", "Un lugar para vivir", "House")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Zanahoria", "Una hortaliza anaranjada", "Carrot")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Java", "Un lenguaje de programación", "Java")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Sol", "Una estrella", "Sun")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Montaña", "Una elevación natural de la tierra", "Mountain")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Jirafa", "Un animal de cuello largo", "Giraffe")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Hamburguesa", "Una comida deliciosa", "Burger")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Fútbol", "Un deporte popular", "Football")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Universidad", "Institución académica", "University")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Invierno", "Una de las estaciones", "Winter")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Lápiz", "Instrumento de escritura", "Pencil")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Océano", "Gran masa de agua salada", "Ocean")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Volar", "Desplazarse por el aire", "Fly")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Teclado", "Dispositivo de entrada", "Keyboard")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Piano", "Instrumento musical", "Piano")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Reptil", "Clase de animales", "Reptile")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Plátano", "Fruta tropical", "Banana")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Eclipse", "Ocultación de un astro por otro", "Eclipse")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Río", "Cuerpo de agua en movimiento", "River")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Computadora", "Dispositivo electrónico", "Computer")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Ciencia", "Conocimiento sistemático", "Science")));
 
-        System.out.println(dictionary.addWordToDictionary(new Word("Reloj", "Instrumento para medir el tiempo", "Clock")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Aventura", "Experiencia emocionante", "Adventure")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Pescado", "Animal acuático comestible", "Fish")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Espejo", "Superficie reflectante", "Mirror")));
-        System.out.println(dictionary.addWordToDictionary(new Word("Helado", "Postre congelado", "Ice Cream")));
-
+        System.out.println(dictionary.addWordToDictionary(new Word("Animal", "animal de la selva","Animal")));
+        System.out.println(dictionary.addWordToDictionary(new Word("Ave", "ave de la selva","aveishon")));
+        System.out.println(dictionary.addWordToDictionary(new Word("Avion", "vehiculo de trnasporte","Aeroplane")));
+        System.out.println(dictionary.addWordToDictionary(new Word("Arriba", "parte de arriba","up")));
         // Mostrar el diccionario
         dictionary.displayDictionary();
 
         // Mostrar el diccionario en orden alfabético
         dictionary.displayDictionaryAlphabetically();
 
+    }
+}*/
+import Logic.Dictionary;
+import Logic.Word;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // Crear un diccionario
+        Dictionary dictionary = new Dictionary();
+        Scanner scanner = new Scanner(System.in);
+
+        int opcion;
+
+        do {
+            System.out.println("\n*** Menú del Diccionario ***");
+            System.out.println("1. Agregar palabra");
+            System.out.println("2. Consultar significado");
+            System.out.println("3. Consultar listado por letra");
+            System.out.println("4. Listar palabras");
+            System.out.println("5. Modificar significado");
+            System.out.println("6. Eliminar palabra");
+            System.out.println("7. Salir");
+            System.out.print("Seleccione una opción: ");
+
+            opcion = scanner.nextInt();
+            scanner.nextLine(); // Consumir la nueva línea después del nextInt()
+
+            switch (opcion) {
+                case 1:
+                    // Agregar palabra
+                    System.out.print("Ingrese la palabra: ");
+                    String nuevaPalabra = scanner.nextLine();
+                    System.out.print("Ingrese el significado: ");
+                    String nuevoSignificado = scanner.nextLine();
+                    System.out.print("Ingrese la traducción: ");
+                    String nuevaTraduccion = scanner.nextLine();
+                    Word nuevaWord = new Word(nuevaPalabra, nuevoSignificado, nuevaTraduccion);
+                    System.out.println(dictionary.addWordToDictionary(nuevaWord));
+                    break;
+
+                case 2:
+                    // Consultar significado
+                    System.out.print("Ingrese la palabra a consultar: ");
+                    String palabra = scanner.nextLine();
+                    String[] result = dictionary.getMeaningAndTranslation(palabra);
+                    System.out.println("Significado de '" + palabra + "': " + result[0]);
+                    System.out.println("Traducción de '" + palabra + "': "+result[1]);
+                    break;
+
+                case 3:
+                    // Listar palabras
+                    System.out.println("\nListado por letra");
+                    System.out.println("Ingrese una letra");
+                    char letter = scanner.next().charAt(0);
+
+                      ArrayList<Word> wordsByLetter=dictionary.getWordsByLetter(letter);
+                    System.out.println("listado de palabras que inciian por "+letter);
+                    for(Word word: wordsByLetter){
+                        System.out.println("palabra: "+word.getWord()+", significado: "+word.getMeaning()+"traduccion: "+word.getTranslation());
+                    }
+                    break;
+
+                case 4:
+                    // Listar palabras
+                    System.out.println("\nDiccionario ordenado alfabéticamente:");
+                    dictionary.displayDictionaryAlphabetically();
+                    break;
+
+                case 5:
+                    // Modificar significado
+                    System.out.print("Ingrese la palabra a modificar: ");
+                    String palabraModificar = scanner.nextLine();
+                    System.out.print("Ingrese el nuevo significado: ");
+                    String nuevoSignificadoModificar = scanner.nextLine();
+                    dictionary.updateMeaning(palabraModificar, nuevoSignificadoModificar);
+                    break;
+
+                case 6:
+                    // Eliminar palabra
+                    System.out.print("Ingrese la palabra a eliminar: ");
+                    String palabraEliminar = scanner.nextLine();
+                    dictionary.deleteWord(palabraEliminar);
+                    break;
+
+                case 7:
+                    // Salir
+                    System.out.println("Saliendo del programa.");
+                    break;
+
+                default:
+                    System.out.println("Opción no válida. Inténtelo de nuevo.");
+            }
+
+        } while (opcion != 6);
     }
 }

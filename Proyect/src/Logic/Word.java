@@ -23,6 +23,10 @@ public class Word {
         return translation;
     }
 
+    public void setMeaning(String meaning) {
+        this.meaning = meaning;
+    }
+
     public boolean isEmpty() {
         return word == null || word.isEmpty();
     }

@@ -248,5 +248,4 @@ public class BinaryTree<T> {
         return findSuccessor(node.getLeft());
     }
 
-
 }

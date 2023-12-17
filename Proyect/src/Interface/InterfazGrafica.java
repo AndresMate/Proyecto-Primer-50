@@ -15,7 +15,7 @@ public class InterfazGrafica {
 
 
     JLabel textoBienvenida;
-    JButton botonAgregar, botonConsultar,botonObtenerListado,botonListar ,botonModificar;
+    JButton botonAgregar, botonConsultar,botonObtenerListado,botonListadoPorLetra,botonListar ,botonModificar;
     /**
      * Constructor de la clase InterfazGrafica.
      * Configura la ventana de bienvenida y los componentes, como el texto de bienvenida y los botones.
@@ -40,7 +40,7 @@ public class InterfazGrafica {
         };
 
         // Configurar el JPanel personalizado
-        panelFondo.setLayout(new GridLayout(7, 1));
+        panelFondo.setLayout(new GridLayout(8, 1));
 
         // Texto de bienvenida
         textoBienvenida = new JLabel("SELECCIONE UNA OPCION");
@@ -63,6 +63,12 @@ public class InterfazGrafica {
         botonConsultar.setBackground(new Color(245, 180, 145, 255));
         botonConsultar.setFont(new Font("Monospaced", Font.BOLD, 20));
         botonConsultar.setOpaque(false);
+
+        botonListadoPorLetra= new JButton("Consultar listado por letra");
+        botonListadoPorLetra.setForeground(Color.BLACK);
+        botonListadoPorLetra.setBackground(new Color(245, 180, 145, 255));
+        botonListadoPorLetra.setFont(new Font("Monospaced", Font.BOLD, 20));
+        botonListadoPorLetra.setOpaque(false);
 
         botonObtenerListado = new JButton("Obtener Listado");
         botonObtenerListado.setForeground(Color.BLACK);
@@ -89,6 +95,7 @@ public class InterfazGrafica {
         panelFondo.add(botonObtenerListado);
         panelFondo.add(botonListar);
         panelFondo.add(botonModificar);
+        panelFondo.add(botonListadoPorLetra);
 
         // Agregar el panel de fondo a la ventana
         ventana.add(panelFondo);
