@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="46abf677-50f7-4085-982e-5e67bf5b579b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/intellij-javadocs-4.0.1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Code.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/src/Interface/Images/fondo.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/src/Interface/Images/icono.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/src/Interface/InterfazGrafica.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/src/Logic/BinaryTree.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/src/Logic/Dictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/Logic/Dictionary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/src/Logic/TreeNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/src/Logic/Word.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/src/Test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/Test/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto-Primer-50/Interface/Images/fondo.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto-Primer-50/Interface/Images/icono.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto-Primer-50/Interface/InterfazGrafica$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto-Primer-50/Interface/InterfazGrafica.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto-Primer-50/Logic/BinaryTree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto-Primer-50/Logic/Dictionary.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto-Primer-50/Logic/Dictionary.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto-Primer-50/Logic/TreeNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto-Primer-50/Logic/Word.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto-Primer-50/Test/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto-Primer-50/Test/Main.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2Zfge3xI643kaewYx37tSXAuL9O" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.InterfazGrafica.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.InterfazGrafica">
+    <configuration name="InterfazGrafica" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Interface.InterfazGrafica" />
+      <module name="Proyecto-Primer-50" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Interface.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test.Main" />
+      <module name="Proyecto-Primer-50" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.InterfazGrafica" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-20.0.2-azul-20.0.2-3183f394aec4-4edb7f01" />
+        <option value="jdk-21.0.1-openjdk-21.0.1-3183f394aec4-7d648f2c" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="46abf677-50f7-4085-982e-5e67bf5b579b" name="Changes" comment="" />
+      <created>1702818642882</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1702818642882</updated>
+      <workItem from="1702818648055" duration="470000" />
+      <workItem from="1702821036798" duration="2000" />
+      <workItem from="1702823212314" duration="16000" />
+      <workItem from="1702823341246" duration="56000" />
+      <workItem from="1702823509998" duration="22000" />
+      <workItem from="1702823641785" duration="484000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
