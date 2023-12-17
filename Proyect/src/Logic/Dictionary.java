@@ -27,7 +27,7 @@ public class Dictionary {
         return "La palabra ingresada no es válida. Inténtelo de nuevo.";
     }
 
-    public void displayDictionary() {
+    public String displayDictionary() {
         for (int i = 0; i < 26; i++) {
             char letter = (char) ('A' + i);
             System.out.println("\nPalabras que comienzan con la letra " + letter + ":");
@@ -38,6 +38,7 @@ public class Dictionary {
                         ", Traducción: " + word.getTranslation());
             }
         }
+        return null;
     }
 
     private int convertWordToASCII(char firstLetter) {

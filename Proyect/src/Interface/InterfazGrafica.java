@@ -3,8 +3,11 @@
  * Proporciona opciones para iniciar sesión o registrarse como usuario.
  */
 package Interface;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import static java.util.Objects.requireNonNull;
 
@@ -16,6 +19,9 @@ public class InterfazGrafica {
 
     JLabel textoBienvenida;
     JButton botonAgregar, botonConsultar,botonObtenerListado,botonListadoPorLetra,botonListar ,botonModificar;
+    OptionOne dictionaryGUI; // Nueva instancia de la interfaz de agregar palabra
+
+
     /**
      * Constructor de la clase InterfazGrafica.
      * Configura la ventana de bienvenida y los componentes, como el texto de bienvenida y los botones.
@@ -57,6 +63,17 @@ public class InterfazGrafica {
         botonAgregar.setFont(new Font("Monospaced", Font.BOLD, 20));
         botonAgregar.setOpaque(false);
 
+        // Agregar ActionListener para mostrar la interfaz de agregar palabra
+        botonAgregar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Crear la instancia de DictionaryGUI al hacer clic en el botón
+                dictionaryGUI = new OptionOne();
+                // Hacer visible la instancia existente de DictionaryGUI
+                dictionaryGUI.setVisible(true);
+            }
+        });
+
 
         botonConsultar = new JButton("Consultar palabra");
         botonConsultar.setForeground(Color.BLACK);
@@ -64,7 +81,7 @@ public class InterfazGrafica {
         botonConsultar.setFont(new Font("Monospaced", Font.BOLD, 20));
         botonConsultar.setOpaque(false);
 
-        botonListadoPorLetra= new JButton("Consultar listado por letra");
+        botonListadoPorLetra = new JButton("Consultar listado por letra");
         botonListadoPorLetra.setForeground(Color.BLACK);
         botonListadoPorLetra.setBackground(new Color(245, 180, 145, 255));
         botonListadoPorLetra.setFont(new Font("Monospaced", Font.BOLD, 20));
@@ -88,14 +105,13 @@ public class InterfazGrafica {
         botonModificar.setFont(new Font("Monospaced", Font.BOLD, 20));
         botonModificar.setOpaque(false);
 
-
         panelFondo.add(textoBienvenida);
         panelFondo.add(botonAgregar);
         panelFondo.add(botonConsultar);
+        panelFondo.add(botonListadoPorLetra);
         panelFondo.add(botonObtenerListado);
         panelFondo.add(botonListar);
         panelFondo.add(botonModificar);
-        panelFondo.add(botonListadoPorLetra);
 
         // Agregar el panel de fondo a la ventana
         ventana.add(panelFondo);
@@ -108,7 +124,6 @@ public class InterfazGrafica {
     }
 
     public static void main(String[] args) {
-            new InterfazGrafica();
-
+        new InterfazGrafica();
     }
 }
