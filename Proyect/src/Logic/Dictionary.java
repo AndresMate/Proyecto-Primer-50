@@ -1,13 +1,17 @@
 package Logic;
 
-import Model.Word;
-
 import java.util.ArrayList;
 import java.util.Comparator;
+
+import Model.Word;
 
 public class Dictionary {
     private static BinaryTree<Word>[] alphabetTrees;
 
+    /**
+     * Constructor de la clase Dictionary.
+     * Inicializa los árboles binarios de búsqueda para cada letra del alfabeto.
+     */
     public Dictionary() {
         // Inicialización de árboles
         alphabetTrees = new BinaryTree[26];
@@ -16,6 +20,11 @@ public class Dictionary {
         }
     }
 
+    /**
+     * Método para agregar una palabra al diccionario.
+     * @param word Palabra a agregar.
+     * @return Mensaje de éxito o fracaso.
+     */
     public String addWordToDictionary(Word word) {
         if (!word.isEmpty() && Character.isLetter(word.getWord().charAt(0))) {
             int index = convertWordToASCII(word.getWord().toUpperCase().charAt(0));
@@ -27,28 +36,22 @@ public class Dictionary {
         return "La palabra ingresada no es válida. Inténtelo de nuevo.";
     }
 
-    public void displayDictionary() {
-        for (int i = 0; i < 26; i++) {
-            char letter = (char) ('A' + i);
-            System.out.println("\nPalabras que comienzan con la letra " + letter + ":");
-            ArrayList<Word> words = alphabetTrees[i].listInsort();
-            for (Word word : words) {
-                System.out.println("Palabra: " + word.getWord() +
-                        ", Significado: " + word.getMeaning() +
-                        ", Traducción: " + word.getTranslation());
-            }
-        }
-    }
-
+    /**
+     * Método para convertir una letra a su valor ASCII.
+     * @param firstLetter Letra a convertir.
+     * @return Valor ASCII de la letra.
+     */
     private int convertWordToASCII(char firstLetter) {
         return Character.toUpperCase(firstLetter) - 'A';
     }
 
+    /**
+     * Método para mostrar el diccionario en orden alfabético.
+     */
     public void displayDictionaryAlphabetically() {
         for (int i = 0; i < 26; i++) {
             char letter = (char) ('A' + i);
             System.out.println("\nPalabras que comienzan con la letra " + letter + ":");
-
             ArrayList<Word> words = alphabetTrees[i].listInsort();
             for (Word word : words) {
                 System.out.println("Palabra: " + word.getWord() +
@@ -58,8 +61,12 @@ public class Dictionary {
         }
     }
 
-
-
+    /**
+     * Método para buscar una palabra en el diccionario y cambiar su significado.
+     * @param wordToUpdate Palabra a buscar.
+     * @param newMeaning Nuevo significado de la palabra.
+     * @return Mensaje de éxito o fracaso.
+     */
     public String updateMeaning(String wordToUpdate, String newMeaning) {
         int index = convertWordToASCII(wordToUpdate.toUpperCase().charAt(0));
 
@@ -74,6 +81,12 @@ public class Dictionary {
 
         return "Palabra no encontrada. No se pudo actualizar el significado.";
     }
+
+    /**
+     * Método para buscar una palabra en el diccionario y ver su significado y traducción.
+     * @param wordToFind Palabra a buscar.
+     * @return Arreglo con el significado y traducción de la palabra.
+     */
     public String[] getMeaningAndTranslation(String wordToFind) {
         int index = convertWordToASCII(wordToFind.toUpperCase().charAt(0));
 
@@ -90,6 +103,11 @@ public class Dictionary {
         return new String[]{"Palabra no encontrada", "Palabra no encontrada"};
     }
 
+    /**
+     * Método para buscar una palabra en el diccionario y eliminarla.
+     * @param wordToDelete Palabra a eliminar.
+     * @return Mensaje de éxito o fracaso.
+     */
     public String deleteWord(String wordToDelete) {
         int index = convertWordToASCII(wordToDelete.toUpperCase().charAt(0));
 
@@ -103,6 +121,12 @@ public class Dictionary {
 
         return "Palabra no encontrada. No se pudo eliminar.";
 }
+
+    /**
+     * Método para obtener todas las palabras que comienzan con una letra.
+     * @param letter Letra a buscar.
+     * @return Lista de palabras que comienzan con la letra.
+     */
     public ArrayList<Word> getWordsByLetter(char letter) {
         int index = convertWordToASCII(Character.toUpperCase(letter));
 

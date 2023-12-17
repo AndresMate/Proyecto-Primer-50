@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"Logic","l":"BinaryTree"},{"p":"Logic","l":"Dictionary"},{"p":"Interface","l":"InterfazGrafica"},{"p":"Test","l":"Main"},{"p":"Logic","l":"TreeNode"},{"p":"Model","l":"Word"}];updateSearchResults();
