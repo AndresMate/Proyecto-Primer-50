@@ -4,39 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46abf677-50f7-4085-982e-5e67bf5b579b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/.idea/intellij-javadocs-4.0.1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Code.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/Interface/Images/fondo.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/Interface/Images/icono.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/Interface/InterfazGrafica.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/Logic/BinaryTree.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/Logic/Dictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/Logic/Dictionary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/Logic/TreeNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/Logic/Word.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/src/Test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Code/src/Test/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto-Primer-50/Interface/Images/fondo.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto-Primer-50/Interface/Images/icono.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto-Primer-50/Interface/InterfazGrafica$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto-Primer-50/Interface/InterfazGrafica.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto-Primer-50/Logic/BinaryTree.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto-Primer-50/Logic/Dictionary.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto-Primer-50/Logic/Dictionary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto-Primer-50/Logic/TreeNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto-Primer-50/Logic/Word.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto-Primer-50/Test/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto-Primer-50/Test/Main.class" afterDir="false" />
-    </list>
+    <list default="true" id="46abf677-50f7-4085-982e-5e67bf5b579b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,6 +98,7 @@
       <workItem from="1702823341246" duration="56000" />
       <workItem from="1702823509998" duration="22000" />
       <workItem from="1702823641785" duration="484000" />
+      <workItem from="1702824312516" duration="42000" />
     </task>
     <servers />
   </component>
