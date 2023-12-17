@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import Logic.BinaryTree;
 
+
+import com.os.operando.mymemory.translator.MyMemoryTranslator;
+
+
 public class Dictionary {
     private static BinaryTree<String>[] alphabetTrees;
 
@@ -44,5 +48,17 @@ public class Dictionary {
         int codigoASCII = (word.charAt(0));
         return codigoASCII-65;
     }
+    public static String traductionWord(String word, String english) {
+        // Utiliza el servicio MyMemory para traducción (requiere acceso a internet)
+        MyMemoryTranslator translator = new MyMemoryTranslator();
 
+        try {
+            // Realiza la traducción al idioma destino
+            return translator.translate(word, english);
+        } catch (Exception e) {
+            // Maneja la excepción de manera adecuada
+            e.printStackTrace();
+            return "Error en la traducción";
+        }
+    }
 }
