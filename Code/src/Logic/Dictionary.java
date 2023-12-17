@@ -6,7 +6,7 @@ import java.util.Comparator;
 import Logic.BinaryTree;
 
 
-import com.os.operando.mymemory.translator.MyMemoryTranslator;
+
 
 
 public class Dictionary {
@@ -22,8 +22,8 @@ public class Dictionary {
     }
 
 
-    public  String addWordToDictionary(String word) {
-        if (!word.isEmpty() && Character.isLetter(word.charAt(0)) && convertWordToASCII(word)>=0 && convertWordToASCII(word)<=25 ) {
+    public String addWordToDictionary(String word) {
+        if (!word.isEmpty() && Character.isLetter(word.charAt(0)) && convertWordToASCII(word) >= 0 && convertWordToASCII(word) <= 25) {
             int index = convertWordToASCII(word);
             alphabetTrees[index].addNode(word);
             return ("Palabra agregada exitosamente al diccionario.");
@@ -32,7 +32,7 @@ public class Dictionary {
         }
     }
 
-    public  void displayDictionary() {
+    public void displayDictionary() {
         for (int i = 0; i < 26; i++) {
             char letter = (char) ('A' + i);
             System.out.println("\nPalabras que comienzan con la letra " + letter + ":");
@@ -43,22 +43,10 @@ public class Dictionary {
         }
     }
 
-    public  int convertWordToASCII(String word) {
+    public int convertWordToASCII(String word) {
         word = word.substring(0, 1).toUpperCase() + word.substring(1);
         int codigoASCII = (word.charAt(0));
-        return codigoASCII-65;
+        return codigoASCII - 65;
     }
-    public static String traductionWord(String word, String english) {
-        // Utiliza el servicio MyMemory para traducción (requiere acceso a internet)
-        MyMemoryTranslator translator = new MyMemoryTranslator();
 
-        try {
-            // Realiza la traducción al idioma destino
-            return translator.translate(word, english);
-        } catch (Exception e) {
-            // Maneja la excepción de manera adecuada
-            e.printStackTrace();
-            return "Error en la traducción";
-        }
-    }
 }

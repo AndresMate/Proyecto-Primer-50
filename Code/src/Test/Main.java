@@ -1,8 +1,6 @@
 package Test;
 import Logic.Dictionary;
-import com.google.cloud.translate.Translate;
-import com.google.cloud.translate.TranslateOptions;
-import com.google.cloud.translate.Translation;
+
 public class Main {
     public static void main(String[] args) {
         Dictionary dictionary = new Dictionary();
@@ -16,11 +14,7 @@ public class Main {
         dictionary.displayDictionary();
 
 
-        Translate translate = TranslateOptions.getDefaultInstance().getService();
-        System.out.print("Ingrese una palabra: ");
-        String palabra = scanner.nextLine();
-        Translation translation = translate.translate(palabra, Translate.TranslateOption.targetLanguage("en"));
-        System.out.println("Traducción en inglés: " + translation.getTranslatedText());
+
     }
 
 }
