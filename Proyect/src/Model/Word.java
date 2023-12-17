@@ -30,4 +30,11 @@ public class Word {
     public boolean isEmpty() {
         return word == null || word.isEmpty();
     }
+
+    @Override
+    public String toString() {
+        return "Palabra: " + word +
+               ", Significado: " + meaning +
+               ", Traducción: " + translation;
+    }
 }
