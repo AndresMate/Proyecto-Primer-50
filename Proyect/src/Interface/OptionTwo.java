@@ -6,17 +6,18 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class OptionTwo {
+public class OptionTwo extends JFrame{
     private JFrame frame;
     private JTextField wordTextField;
     private JTextArea resultTextArea;
 
     private Dictionary dictionary;
 
-    public OptionTwo() {
-        dictionary = new Dictionary();
+    public OptionTwo( Dictionary dictionary) {
+
 
         frame = new JFrame("SIGNIFICADO");
+        this.dictionary = dictionary;
         frame.setSize(400, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -26,7 +27,7 @@ public class OptionTwo {
 
         frame.setVisible(true);
 
-
+        exit();
     }
 
     private void placeComponents(JPanel panel) {
@@ -65,11 +66,11 @@ public class OptionTwo {
         resultTextArea.setText(result);
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new OptionTwo();
-            }
-        });
+    public void exit(){
+        try {
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

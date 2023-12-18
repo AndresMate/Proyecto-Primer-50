@@ -84,6 +84,16 @@ public class InterfazGrafica {
         botonConsultar.setFont(new Font("Monospaced", Font.BOLD, 20));
         botonConsultar.setOpaque(false);
 
+        botonConsultar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Crear la instancia de OptionTwo al hacer clic en el botón
+                OptionTwo optionTwo = new OptionTwo(dictionary);
+                // Hacer visible la instancia existente de OptionTwo
+                optionTwo.setVisible(true);
+            }
+        });
+
         
 
 
