@@ -1,78 +1,73 @@
 package Interface;
 
 import Logic.Dictionary;
-import Model.Word;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class OptionTwo extends JFrame {
+public class OptionTwo {
+    private JFrame frame;
+    private JTextField wordTextField;
+    private JTextArea resultTextArea;
 
     private Dictionary dictionary;
-    private JTextField palabraField, significadoField, traduccionField;
-    private JTextArea outputArea;
 
     public OptionTwo() {
-        super("AGREGAR PALABRA");
         dictionary = new Dictionary();
 
-        // Configurar la interfaz gráfica
-        setLayout(new GridLayout(2, 1));
+        frame = new JFrame("SIGNIFICADO");
+        frame.setSize(400, 300);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Panel de entrada
-        JPanel inputPanel = new JPanel(new GridLayout(4, 2));
+        JPanel panel = new JPanel();
+        frame.add(panel);
+        placeComponents(panel);
 
-        palabraField = new JTextField();
-        significadoField = new JTextField();
-        traduccionField = new JTextField();
-
-        inputPanel.add(new JLabel("Palabra:"));
-        inputPanel.add(palabraField);
-        inputPanel.add(new JLabel("Significado:"));
-        inputPanel.add(significadoField);
-        inputPanel.add(new JLabel("Traducción:"));
-        inputPanel.add(traduccionField);
-
-        JButton agregarButton = new JButton("Agregar Palabra");
-        agregarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                agregarPalabra();
-            }
-        });
-        inputPanel.add(agregarButton);
-
-        // Panel de salida
-        outputArea = new JTextArea();
-        outputArea.setEditable(false);
-
-        // Agregar componentes a la ventana
-        add(inputPanel);
-        add(new JScrollPane(outputArea));
-
-        // Configuraciones generales de la ventana
-        setSize(600, 400);
-        setIconImage(new ImageIcon(getClass().getResource("Images/icono.png")).getImage());  // Establecer el icono
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setVisible(true);
+        frame.setVisible(true);
     }
 
-    private void agregarPalabra() {
-        String palabra = palabraField.getText();
-        String significado = significadoField.getText();
-        String traduccion = traduccionField.getText();
+    private void placeComponents(JPanel panel) {
+        panel.setLayout(null);
 
-        Word nuevaWord = new Word(palabra, significado, traduccion);
-        dictionary.addWordToDictionary(nuevaWord);
+        JLabel titleLabel = new JLabel("Buscar Significado");
+        titleLabel.setBounds(150, 10, 200, 25);
+        panel.add(titleLabel);
 
-        // Actualizar el área de salida
-        outputArea.setText(dictionary.displayDictionary());
+        wordTextField = new JTextField();
+        wordTextField.setBounds(50, 50, 200, 25);
+        panel.add(wordTextField);
+
+        JButton searchButton = new JButton("Buscar");
+        searchButton.setBounds(260, 50, 80, 25);
+        panel.add(searchButton);
+
+        resultTextArea = new JTextArea();
+        resultTextArea.setBounds(50, 90, 290, 130);
+        resultTextArea.setEditable(false);
+        panel.add(resultTextArea);
+
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                searchButtonClicked();
+            }
+        });
+    }
+
+    private void searchButtonClicked() {
+        String wordToFind = wordTextField.getText().trim();
+        String[] meaningAndTranslation = dictionary.getMeaningAndTranslation(wordToFind);
+
+        String result = "Significado: " + meaningAndTranslation[0] + "\nTraduccion: " + meaningAndTranslation[1];
+        resultTextArea.setText(result);
     }
 
     public static void main(String[] args) {
-        new OptionTwo();
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new OptionTwo();
+            }
+        });
     }
 }

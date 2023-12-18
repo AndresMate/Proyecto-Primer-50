@@ -66,10 +66,13 @@ public class OptionOne extends JFrame {
         String traduccion = traduccionField.getText();
 
         Word nuevaWord = new Word(palabra, significado, traduccion);
-        dictionary.addWordToDictionary(nuevaWord);
+        String mensaje = dictionary.addWordToDictionary(nuevaWord);
 
         // Actualizar el área de salida
         outputArea.setText(dictionary.displayDictionary());
+
+        // Mostrar JOptionPane
+        JOptionPane.showMessageDialog(this, mensaje, "Resultado", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public static void main(String[] args) {

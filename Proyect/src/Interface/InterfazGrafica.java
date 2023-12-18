@@ -69,8 +69,10 @@ public class InterfazGrafica {
             public void actionPerformed(ActionEvent e) {
                 // Crear la instancia de DictionaryGUI al hacer clic en el botón
                 dictionaryGUI = new OptionOne();
+                
                 // Hacer visible la instancia existente de DictionaryGUI
                 dictionaryGUI.setVisible(true);
+
             }
         });
 

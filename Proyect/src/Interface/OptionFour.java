@@ -4,75 +4,77 @@ import Logic.Dictionary;
 import Model.Word;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-public class OptionFour extends JFrame {
+public class OptionFour {
+    private JFrame frame;
+    private JTextArea resultTextArea;
 
     private Dictionary dictionary;
-    private JTextField palabraField, significadoField, traduccionField;
-    private JTextArea outputArea;
 
     public OptionFour() {
-        super("AGREGAR PALABRA");
         dictionary = new Dictionary();
 
-        // Configurar la interfaz gráfica
-        setLayout(new GridLayout(2, 1));
+        frame = new JFrame("LISTADO DE PALABRAS");
+        frame.setSize(400, 300);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Panel de entrada
-        JPanel inputPanel = new JPanel(new GridLayout(4, 2));
+        JPanel panel = new JPanel();
+        frame.add(panel);
+        placeComponents(panel);
 
-        palabraField = new JTextField();
-        significadoField = new JTextField();
-        traduccionField = new JTextField();
-
-        inputPanel.add(new JLabel("Palabra:"));
-        inputPanel.add(palabraField);
-        inputPanel.add(new JLabel("Significado:"));
-        inputPanel.add(significadoField);
-        inputPanel.add(new JLabel("Traducción:"));
-        inputPanel.add(traduccionField);
-
-        JButton agregarButton = new JButton("Agregar Palabra");
-        agregarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                agregarPalabra();
-            }
-        });
-        inputPanel.add(agregarButton);
-
-        // Panel de salida
-        outputArea = new JTextArea();
-        outputArea.setEditable(false);
-
-        // Agregar componentes a la ventana
-        add(inputPanel);
-        add(new JScrollPane(outputArea));
-
-        // Configuraciones generales de la ventana
-        setSize(600, 400);
-        setIconImage(new ImageIcon(getClass().getResource("Images/icono.png")).getImage());  // Establecer el icono
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setVisible(true);
+        frame.setVisible(true);
     }
 
-    private void agregarPalabra() {
-        String palabra = palabraField.getText();
-        String significado = significadoField.getText();
-        String traduccion = traduccionField.getText();
+    private void placeComponents(JPanel panel) {
+        panel.setLayout(null);
 
-        Word nuevaWord = new Word(palabra, significado, traduccion);
-        dictionary.addWordToDictionary(nuevaWord);
+        JLabel titleLabel = new JLabel("LISTADO DE PALABRAS");
+        titleLabel.setBounds(150, 10, 200, 25);
+        panel.add(titleLabel);
 
-        // Actualizar el área de salida
-        outputArea.setText(dictionary.displayDictionary());
+        JButton showAllButton = new JButton("Mostrar");
+        showAllButton.setBounds(150, 50, 100, 25);
+        panel.add(showAllButton);
+
+        resultTextArea = new JTextArea();
+        resultTextArea.setBounds(50, 90, 290, 130);
+        resultTextArea.setEditable(false);
+        panel.add(resultTextArea);
+
+        showAllButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                showAllButtonClicked();
+            }
+        });
+    }
+
+    private void showAllButtonClicked() {
+        StringBuilder result = new StringBuilder("Listado de Todas las Palabras:\n");
+
+        for (char letter = 'A'; letter <= 'Z'; letter++) {
+            ArrayList<Word> words = dictionary.getWordsByLetter(letter);
+
+            for (Word word : words) {
+                result.append("Palabra: ").append(word.getWord()).append(", Significado: ").append(word.getMeaning()).append(", Traducción: ").append(word.getTranslation()).append("\n");
+            }
+        }
+
+        if (result.length() == 0) {
+            JOptionPane.showMessageDialog(frame, "No hay palabras en el diccionario.", "Resultados", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            resultTextArea.setText(result.toString());
+        }
     }
 
     public static void main(String[] args) {
-        new OptionFour();
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new OptionFour();
+            }
+        });
     }
 }

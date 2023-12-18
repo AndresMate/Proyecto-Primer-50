@@ -1,78 +1,84 @@
 package Interface;
 
 import Logic.Dictionary;
-import Model.Word;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class OptionFive extends JFrame {
+public class OptionFive {
+    private JFrame frame;
+    private JTextField wordTextField;
+    private JTextField meaningTextField;
 
     private Dictionary dictionary;
-    private JTextField palabraField, significadoField, traduccionField;
-    private JTextArea outputArea;
 
     public OptionFive() {
-        super("AGREGAR PALABRA");
         dictionary = new Dictionary();
 
-        // Configurar la interfaz gráfica
-        setLayout(new GridLayout(2, 1));
+        frame = new JFrame("OptionFive");
+        frame.setSize(400, 200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Panel de entrada
-        JPanel inputPanel = new JPanel(new GridLayout(4, 2));
+        JPanel panel = new JPanel();
+        frame.add(panel);
+        placeComponents(panel);
 
-        palabraField = new JTextField();
-        significadoField = new JTextField();
-        traduccionField = new JTextField();
-
-        inputPanel.add(new JLabel("Palabra:"));
-        inputPanel.add(palabraField);
-        inputPanel.add(new JLabel("Significado:"));
-        inputPanel.add(significadoField);
-        inputPanel.add(new JLabel("Traducción:"));
-        inputPanel.add(traduccionField);
-
-        JButton agregarButton = new JButton("Agregar Palabra");
-        agregarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                agregarPalabra();
-            }
-        });
-        inputPanel.add(agregarButton);
-
-        // Panel de salida
-        outputArea = new JTextArea();
-        outputArea.setEditable(false);
-
-        // Agregar componentes a la ventana
-        add(inputPanel);
-        add(new JScrollPane(outputArea));
-
-        // Configuraciones generales de la ventana
-        setSize(600, 400);
-        setIconImage(new ImageIcon(getClass().getResource("Images/icono.png")).getImage());  // Establecer el icono
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setVisible(true);
+        frame.setVisible(true);
     }
 
-    private void agregarPalabra() {
-        String palabra = palabraField.getText();
-        String significado = significadoField.getText();
-        String traduccion = traduccionField.getText();
+    private void placeComponents(JPanel panel) {
+        panel.setLayout(null);
 
-        Word nuevaWord = new Word(palabra, significado, traduccion);
-        dictionary.addWordToDictionary(nuevaWord);
+        JLabel titleLabel = new JLabel("Modificar");
+        titleLabel.setBounds(150, 10, 200, 25);
+        panel.add(titleLabel);
 
-        // Actualizar el área de salida
-        outputArea.setText(dictionary.displayDictionary());
+        JLabel wordLabel = new JLabel("Palabra a Modificar:");
+        wordLabel.setBounds(50, 50, 150, 25);
+        panel.add(wordLabel);
+
+        wordTextField = new JTextField();
+        wordTextField.setBounds(200, 50, 150, 25);
+        panel.add(wordTextField);
+
+        JLabel meaningLabel = new JLabel("Nuevo Significado:");
+        meaningLabel.setBounds(50, 80, 150, 25);
+        panel.add(meaningLabel);
+
+        meaningTextField = new JTextField();
+        meaningTextField.setBounds(200, 80, 150, 25);
+        panel.add(meaningTextField);
+
+        JButton modifyButton = new JButton("Modificar Significado");
+        modifyButton.setBounds(150, 110, 150, 25);
+        panel.add(modifyButton);
+
+        modifyButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                modifyButtonClicked();
+            }
+        });
+    }
+
+    private void modifyButtonClicked() {
+        String wordToModify = wordTextField.getText().trim();
+        String newMeaning = meaningTextField.getText().trim();
+
+        if (!wordToModify.isEmpty() && !newMeaning.isEmpty()) {
+            String result = dictionary.updateMeaning(wordToModify, newMeaning);
+            JOptionPane.showMessageDialog(frame, result, "Resultado", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(frame, "Por favor, ingrese la palabra y el nuevo significado.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     public static void main(String[] args) {
-        new OptionFive();
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new OptionFive();
+            }
+        });
     }
 }

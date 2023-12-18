@@ -4,75 +4,88 @@ import Logic.Dictionary;
 import Model.Word;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-public class OptionTree extends JFrame {
+public class OptionTree {
+    private JFrame frame;
+    private JTextField letterTextField;
 
     private Dictionary dictionary;
-    private JTextField palabraField, significadoField, traduccionField;
-    private JTextArea outputArea;
 
     public OptionTree() {
-        super("AGREGAR PALABRA");
         dictionary = new Dictionary();
 
-        // Configurar la interfaz gráfica
-        setLayout(new GridLayout(2, 1));
+        frame = new JFrame("LISTADO");
+        frame.setSize(400, 150);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Panel de entrada
-        JPanel inputPanel = new JPanel(new GridLayout(4, 2));
+        JPanel panel = new JPanel();
+        frame.add(panel);
+        placeComponents(panel);
 
-        palabraField = new JTextField();
-        significadoField = new JTextField();
-        traduccionField = new JTextField();
-
-        inputPanel.add(new JLabel("Palabra:"));
-        inputPanel.add(palabraField);
-        inputPanel.add(new JLabel("Significado:"));
-        inputPanel.add(significadoField);
-        inputPanel.add(new JLabel("Traducción:"));
-        inputPanel.add(traduccionField);
-
-        JButton agregarButton = new JButton("Agregar Palabra");
-        agregarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                agregarPalabra();
-            }
-        });
-        inputPanel.add(agregarButton);
-
-        // Panel de salida
-        outputArea = new JTextArea();
-        outputArea.setEditable(false);
-
-        // Agregar componentes a la ventana
-        add(inputPanel);
-        add(new JScrollPane(outputArea));
-
-        // Configuraciones generales de la ventana
-        setSize(600, 400);
-        setIconImage(new ImageIcon(getClass().getResource("Images/icono.png")).getImage());  // Establecer el icono
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setVisible(true);
+        frame.setVisible(true);
     }
 
-    private void agregarPalabra() {
-        String palabra = palabraField.getText();
-        String significado = significadoField.getText();
-        String traduccion = traduccionField.getText();
+    private void placeComponents(JPanel panel) {
+        panel.setLayout(null);
 
-        Word nuevaWord = new Word(palabra, significado, traduccion);
-        dictionary.addWordToDictionary(nuevaWord);
+        JLabel titleLabel = new JLabel("LISTADO DE PALABRAS");
+        titleLabel.setBounds(150, 10, 200, 25);
+        panel.add(titleLabel);
 
-        // Actualizar el área de salida
-        outputArea.setText(dictionary.displayDictionary());
+        JLabel enterLetterLabel = new JLabel("Ingrese una letra:");
+        enterLetterLabel.setBounds(50, 50, 150, 25);
+        panel.add(enterLetterLabel);
+
+        letterTextField = new JTextField();
+        letterTextField.setBounds(200, 50, 50, 25);
+        panel.add(letterTextField);
+
+        JButton searchButton = new JButton("Buscar");
+        searchButton.setBounds(260, 50, 80, 25);
+        panel.add(searchButton);
+
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                searchButtonClicked();
+            }
+        });
+    }
+
+    private void searchButtonClicked() {
+        String letter = letterTextField.getText().trim();
+        if (letter.length() == 1 && Character.isLetter(letter.charAt(0))) {
+            char searchLetter = Character.toUpperCase(letter.charAt(0));
+            displayWordsForLetter(searchLetter);
+        } else {
+            JOptionPane.showMessageDialog(frame, "Entrada no válida. Ingrese una sola letra.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void displayWordsForLetter(char letter) {
+        ArrayList<Word> words = dictionary.getWordsByLetter(letter);
+
+        if (words.isEmpty()) {
+            JOptionPane.showMessageDialog(frame, "No hay palabras que comiencen con la letra " + letter, "Resultados", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            StringBuilder result = new StringBuilder("Palabras que comienzan con la letra " + letter + ":\n");
+
+            for (Word word : words) {
+                result.append("Palabra: ").append(word.getWord()).append(", Significado: ").append(word.getMeaning()).append(", Traducción: ").append(word.getTranslation()).append("\n");
+            }
+
+            JOptionPane.showMessageDialog(frame, result.toString(), "Resultados", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 
     public static void main(String[] args) {
-        new OptionTree();
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new OptionTree();
+            }
+        });
     }
 }
