@@ -8,14 +8,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class OptionTree {
+public class OptionTree extends JFrame {
     private JFrame frame;
     private JTextField letterTextField;
 
     private Dictionary dictionary;
 
-    public OptionTree() {
-        dictionary = new Dictionary();
+    public OptionTree(Dictionary dictionary) {
+        this.dictionary= dictionary;
 
         frame = new JFrame("LISTADO");
         frame.setSize(400, 150);
@@ -26,6 +26,7 @@ public class OptionTree {
         placeComponents(panel);
 
         frame.setVisible(true);
+        exit();
     }
 
     private void placeComponents(JPanel panel) {
@@ -81,11 +82,11 @@ public class OptionTree {
         }
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new OptionTree();
-            }
-        });
+    public void exit(){
+        try {
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

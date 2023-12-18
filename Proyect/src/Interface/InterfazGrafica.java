@@ -94,14 +94,21 @@ public class InterfazGrafica {
             }
         });
 
-        
-
-
         botonListadoPorLetra = new JButton("Consultar listado por letra");
         botonListadoPorLetra.setForeground(Color.BLACK);
         botonListadoPorLetra.setBackground(new Color(245, 180, 145, 255));
         botonListadoPorLetra.setFont(new Font("Monospaced", Font.BOLD, 20));
         botonListadoPorLetra.setOpaque(false);
+        botonListadoPorLetra.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Crear la instancia de OptionTree al hacer clic en el botón
+                OptionTree optionTree = new OptionTree(dictionary);
+                // Hacer visible la instancia existente de OptionTree
+                optionTree.setVisible(true);
+            }
+        });
+
 
         botonObtenerListado = new JButton("Obtener Listado");
         botonObtenerListado.setForeground(Color.BLACK);
