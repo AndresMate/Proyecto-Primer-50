@@ -8,14 +8,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class OptionFour {
+public class OptionFour extends JFrame {
     private JFrame frame;
     private JTextArea resultTextArea;
 
     private Dictionary dictionary;
 
-    public OptionFour() {
-        dictionary = new Dictionary();
+    public OptionFour(Dictionary dictionary) {
+        this.dictionary = dictionary;
 
         frame = new JFrame("LISTADO DE PALABRAS");
         frame.setSize(400, 300);
@@ -26,6 +26,7 @@ public class OptionFour {
         placeComponents(panel);
 
         frame.setVisible(true);
+        exit();
     }
 
     private void placeComponents(JPanel panel) {
@@ -40,9 +41,10 @@ public class OptionFour {
         panel.add(showAllButton);
 
         resultTextArea = new JTextArea();
-        resultTextArea.setBounds(50, 90, 290, 130);
-        resultTextArea.setEditable(false);
-        panel.add(resultTextArea);
+        // Utilizamos JScrollPane para agregar una barra de desplazamiento
+        JScrollPane scrollPane = new JScrollPane(resultTextArea);
+        scrollPane.setBounds(50, 90, 290, 130);
+        panel.add(scrollPane);
 
         showAllButton.addActionListener(new ActionListener() {
             @Override
@@ -54,27 +56,19 @@ public class OptionFour {
 
     private void showAllButtonClicked() {
         StringBuilder result = new StringBuilder("Listado de Todas las Palabras:\n");
-
-        for (char letter = 'A'; letter <= 'Z'; letter++) {
-            ArrayList<Word> words = dictionary.getWordsByLetter(letter);
-
-            for (Word word : words) {
-                result.append("Palabra: ").append(word.getWord()).append(", Significado: ").append(word.getMeaning()).append(", Traducción: ").append(word.getTranslation()).append("\n");
-            }
-        }
-
-        if (result.length() == 0) {
+        result.append(dictionary.displayDictionaryAlphabetically());
+        if (result.length() == -1) {
             JOptionPane.showMessageDialog(frame, "No hay palabras en el diccionario.", "Resultados", JOptionPane.INFORMATION_MESSAGE);
         } else {
             resultTextArea.setText(result.toString());
         }
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new OptionFour();
-            }
-        });
+    public void exit() {
+        try {
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

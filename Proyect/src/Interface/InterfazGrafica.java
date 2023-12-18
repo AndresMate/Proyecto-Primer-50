@@ -20,7 +20,7 @@ public class InterfazGrafica {
     private Dictionary dictionary;///
 
     JLabel textoBienvenida;
-    JButton botonAgregar, botonConsultar,botonObtenerListado,botonListadoPorLetra,botonListar ,botonModificar;
+    JButton botonAgregar, botonConsultar,botonObtenerListado,botonListadoPorLetra,botonListar ,botonModificar, botonEliminar;
     OptionOne optionOne; // Nueva instancia de la interfaz de agregar palabra
     OptionTwo optionTwo;
 
@@ -116,25 +116,57 @@ public class InterfazGrafica {
         botonObtenerListado.setFont(new Font("Monospaced", Font.BOLD, 20));
         botonObtenerListado.setOpaque(false);
 
-        botonListar = new JButton("Listar palabras");
-        botonListar.setForeground(Color.BLACK);
-        botonListar.setBackground(new Color(245, 180, 145, 255));
-        botonListar.setFont(new Font("Monospaced", Font.BOLD, 20));
-        botonListar.setOpaque(false);
+        botonObtenerListado.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Crear la instancia de OptionFour al hacer clic en el botón
+                OptionFour optionFour = new OptionFour(dictionary);
+                // Hacer visible la instancia existente de OptionFour
+                optionFour.setVisible(true);
+            }
+        });
 
-        botonModificar = new JButton("Modificar palabras");
+        botonModificar = new JButton("Modificar Significado");
         botonModificar.setForeground(Color.BLACK);
         botonModificar.setBackground(new Color(245, 180, 145, 255));
         botonModificar.setFont(new Font("Monospaced", Font.BOLD, 20));
         botonModificar.setOpaque(false);
+
+        botonModificar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Crear la instancia de OptionFive al hacer clic en el botón
+                OptionFive optionFive = new OptionFive(dictionary);
+                // Hacer visible la instancia existente de OptionFive
+                optionFive.setVisible(true);
+            }
+        });
+
+        botonEliminar = new JButton("Eliminar Palabra");
+        botonEliminar.setForeground(Color.BLACK);
+        botonEliminar.setBackground(new Color(245, 180, 145, 255));
+        botonEliminar.setFont(new Font("Monospaced", Font.BOLD, 20));
+        botonEliminar.setOpaque(false);
+
+        botonEliminar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Crear la instancia de OptionSix al hacer clic en el botón
+                OptionSix optionSix = new OptionSix(dictionary);
+                // Hacer visible la instancia existente de OptionSix
+                optionSix.setVisible(true);
+            }
+        });
+
 
         panelFondo.add(textoBienvenida);
         panelFondo.add(botonAgregar);
         panelFondo.add(botonConsultar);
         panelFondo.add(botonListadoPorLetra);
         panelFondo.add(botonObtenerListado);
-        panelFondo.add(botonListar);
         panelFondo.add(botonModificar);
+        panelFondo.add(botonEliminar);
+
 
         // Agregar el panel de fondo a la ventana
         ventana.add(panelFondo);

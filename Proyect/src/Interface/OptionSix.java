@@ -6,14 +6,14 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class OptionSix {
+public class OptionSix extends JFrame {
     private JFrame frame;
     private JTextField wordTextField;
 
     private Dictionary dictionary;
 
-    public OptionSix() {
-        dictionary = new Dictionary();
+    public OptionSix(Dictionary dictionary) {
+        this.dictionary= dictionary;
 
         frame = new JFrame("ELIMINAR PALABRA");
         frame.setSize(400, 150);
@@ -24,6 +24,7 @@ public class OptionSix {
         placeComponents(panel);
 
         frame.setVisible(true);
+        exit();
     }
 
     private void placeComponents(JPanel panel) {
@@ -64,11 +65,11 @@ public class OptionSix {
         }
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new OptionSix();
-            }
-        });
+    public void exit() {
+        try {
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

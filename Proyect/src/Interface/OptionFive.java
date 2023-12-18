@@ -6,15 +6,15 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class OptionFive {
+public class OptionFive extends  JFrame{
     private JFrame frame;
     private JTextField wordTextField;
     private JTextField meaningTextField;
 
     private Dictionary dictionary;
 
-    public OptionFive() {
-        dictionary = new Dictionary();
+    public OptionFive(Dictionary dictionary) {
+       this.dictionary= dictionary;
 
         frame = new JFrame("OptionFive");
         frame.setSize(400, 200);
@@ -25,6 +25,7 @@ public class OptionFive {
         placeComponents(panel);
 
         frame.setVisible(true);
+        exit();
     }
 
     private void placeComponents(JPanel panel) {
@@ -74,11 +75,11 @@ public class OptionFive {
         }
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new OptionFive();
-            }
-        });
+    public void exit() {
+        try {
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

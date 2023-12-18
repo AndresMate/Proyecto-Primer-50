@@ -27,6 +27,14 @@ public class Word {
         this.meaning = meaning;
     }
 
+    public void setWord(String word) {
+        this.word = word;
+    }
+
+    public void setTranslation(String translation) {
+        this.translation = translation;
+    }
+
     public boolean isEmpty() {
         return word == null || word.isEmpty();
     }

@@ -65,17 +65,19 @@ public class Dictionary {
     /**
      * Método para mostrar el diccionario en orden alfabético.
      */
-    public void displayDictionaryAlphabetically() {
+    public String displayDictionaryAlphabetically() {
+        String result="";
         for (int i = 0; i < 26; i++) {
             char letter = (char) ('A' + i);
-            System.out.println("\nPalabras que comienzan con la letra " + letter + ":");
+            result+=("\nPalabras que comienzan con la letra " + letter + ": \n");
             ArrayList<Word> words = alphabetTrees[i].listInsort();
             for (Word word : words) {
-                System.out.println("Palabra: " + word.getWord() +
+                result+=("Palabra: " + word.getWord() +
                         ", Significado: " + word.getMeaning() +
-                        ", Traducción: " + word.getTranslation());
+                        ", Traducción: " + word.getTranslation()+"\n");
             }
         }
+        return result;
     }
 
     /**
