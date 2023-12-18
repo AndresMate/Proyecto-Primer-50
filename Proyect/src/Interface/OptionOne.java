@@ -7,16 +7,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import Interface.InterfazGrafica;
 
 public class OptionOne extends JFrame {
 
-    private Dictionary dictionary;
+
     private JTextField palabraField, significadoField, traduccionField;
     private JTextArea outputArea;
-
-    public OptionOne() {
+    private Dictionary dictionary;
+    public OptionOne(Dictionary dictionary) {
         super("AGREGAR PALABRA");
-        dictionary = new Dictionary();
+        this.dictionary = dictionary;
 
         // Configurar la interfaz gráfica
         setLayout(new GridLayout(2, 1));
@@ -58,6 +59,7 @@ public class OptionOne extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
+        exit();
     }
 
     private void agregarPalabra() {
@@ -75,7 +77,13 @@ public class OptionOne extends JFrame {
         JOptionPane.showMessageDialog(this, mensaje, "Resultado", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public static void main(String[] args) {
-        new OptionOne();
+    public void exit(){
+        try {
+            this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
+
+
 }

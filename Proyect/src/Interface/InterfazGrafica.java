@@ -4,6 +4,8 @@
  */
 package Interface;
 
+import Logic.Dictionary;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -15,7 +17,7 @@ public class InterfazGrafica {
 
     JFrame ventana = new JFrame("DICTIONARY");
     ImageIcon icon = new ImageIcon(requireNonNull(getClass().getResource("Images/icono.png")));
-
+    private Dictionary dictionary;///
 
     JLabel textoBienvenida;
     JButton botonAgregar, botonConsultar,botonObtenerListado,botonListadoPorLetra,botonListar ,botonModificar;
@@ -63,16 +65,15 @@ public class InterfazGrafica {
         botonAgregar.setFont(new Font("Monospaced", Font.BOLD, 20));
         botonAgregar.setOpaque(false);
 
+
+        dictionary = new Dictionary();
         // Agregar ActionListener para mostrar la interfaz de agregar palabra
         botonAgregar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Crear la instancia de DictionaryGUI al hacer clic en el botón
-                optionOne = new OptionOne();
-                
-                // Hacer visible la instancia existente de DictionaryGUI
-               optionOne.setVisible(true);
-
+                // Pasa el diccionario a OptionOne
+                optionOne = new OptionOne(dictionary);
+                optionOne.setVisible(true);
             }
         });
 
@@ -125,6 +126,9 @@ public class InterfazGrafica {
         ventana.setSize(400, 300);
         ventana.setLocationRelativeTo(null);
         ventana.setVisible(true);
+
+
+
 
     }
 
