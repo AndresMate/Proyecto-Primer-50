@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class OptionFive extends  JFrame{
+public class OptionFive extends JFrame {
     private JFrame frame;
     private JTextField wordTextField;
     private JTextField meaningTextField;

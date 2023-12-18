@@ -35,9 +35,5 @@ public class TreeNode<T> {
         return right;
     }
 
-    @Override
-    public String toString() {
-        return info.toString();
-    }
 
 }
