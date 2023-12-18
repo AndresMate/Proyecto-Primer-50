@@ -19,8 +19,8 @@ public class InterfazGrafica {
 
     JLabel textoBienvenida;
     JButton botonAgregar, botonConsultar,botonObtenerListado,botonListadoPorLetra,botonListar ,botonModificar;
-    OptionOne dictionaryGUI; // Nueva instancia de la interfaz de agregar palabra
-
+    OptionOne optionOne; // Nueva instancia de la interfaz de agregar palabra
+    OptionTwo optionTwo;
 
     /**
      * Constructor de la clase InterfazGrafica.
@@ -68,10 +68,10 @@ public class InterfazGrafica {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Crear la instancia de DictionaryGUI al hacer clic en el botón
-                dictionaryGUI = new OptionOne();
+                optionOne = new OptionOne();
                 
                 // Hacer visible la instancia existente de DictionaryGUI
-                dictionaryGUI.setVisible(true);
+               optionOne.setVisible(true);
 
             }
         });
@@ -82,6 +82,9 @@ public class InterfazGrafica {
         botonConsultar.setBackground(new Color(245, 180, 145, 255));
         botonConsultar.setFont(new Font("Monospaced", Font.BOLD, 20));
         botonConsultar.setOpaque(false);
+
+        
+
 
         botonListadoPorLetra = new JButton("Consultar listado por letra");
         botonListadoPorLetra.setForeground(Color.BLACK);

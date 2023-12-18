@@ -25,6 +25,8 @@ public class OptionTwo {
         placeComponents(panel);
 
         frame.setVisible(true);
+
+
     }
 
     private void placeComponents(JPanel panel) {
