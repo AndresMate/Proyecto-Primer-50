@@ -1,8 +1,8 @@
 # Proyecto-Primer-50
  Proyecto primer 50 Programacion 3
 
-Proyecto desarrollado para el area de programacin III usando arboloes bianriios ademas deluso de la libreria java swing para la elaboracion
-intrefaces graficas que dan al usuario una mayor interaccion
+Proyecto desarrollado para el area de programacin III usando arboles bianarios ademas del uso de la libreria java swing para la elaboracion
+intrefaces graficas que dan al usuario una mayor interaccion.
 
 Integrantes
 
